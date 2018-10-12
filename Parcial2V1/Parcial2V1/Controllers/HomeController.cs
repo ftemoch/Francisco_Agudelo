@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Parcial2V1.Services;
+using Parcial2V1.Models;
 
 namespace Parcial2V1.Controllers
 {
@@ -25,6 +27,17 @@ namespace Parcial2V1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Cliente()
+        {
+
+            var clientesService = new ClientesServices();
+            var model = clientesService.ListaClientes();
+
+            return View(model);
+
+
         }
     }
 }
