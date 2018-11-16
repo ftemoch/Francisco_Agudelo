@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Clase12.Models.Cliente>
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista</h2>
+<p>
+    @Html.ActionLink("Create New","Nueva")
+</p>
+<table id="clientes" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Salario</th>
+            <th>Si esta activo</th>
+            <th></th>   
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(cliente.Nombre, "Edit", "clientes", new { id = cliente.ID }, null)</td>
+            <td>@cliente.Apellido</td>
+            <td>@cliente.Salario</td>
+            <td>@cliente.estaactivo</td>
+            <!--- <td>@Html.ActionLink("Eliminar", "Eliminar", "clientes", new { id = cliente.ID }, null)</td>-->
+
+                <td>
+                    <button data-customer-id="@cliente.ID" class="btn-link js-delete"> Borrar</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @section scripts
+    {
+        <script>
+
+            $(document).ready(function () {
+
+                $("#clientes").DataTable();
+
+                $("#clientes").on("click", ".js-delete", function () {
+                    var button = $(this);
+                    if (confirm("Seguro")) {
+                        $.ajax({
+
+                            url: "/Clientes/Eliminar/" + button.attr("data-customer-id"),
+
+                            success: function () {
+                                button.parents("tr").remove();
+
+                            }
+                        });
+                    }
+
+                });
+            });
+        </script>
+
+    }
+
