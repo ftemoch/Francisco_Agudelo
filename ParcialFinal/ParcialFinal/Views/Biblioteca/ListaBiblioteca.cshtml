@@ -27,6 +27,9 @@
             <!--<td>@Html.ActionLink("Eliminar", "Eliminar", "Biblioteca", new { id = biblioteca.ID_Libro}, null)</td>-->
             <td>@biblioteca.Autor_Libro</td>
             <td>@biblioteca.ISB_Libro</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = biblioteca.ID_Libro })
+            </td>
 
 
             <td>
