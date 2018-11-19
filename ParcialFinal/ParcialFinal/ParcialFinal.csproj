@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201811190819163_InitialCreate.Designer.cs">
       <DependentUpon>201811190819163_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811191110242_Bibliotecas.cs" />
+    <Compile Include="Migrations\201811191110242_Bibliotecas.Designer.cs">
+      <DependentUpon>201811191110242_Bibliotecas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Biblioteca.cs" />
@@ -478,6 +482,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811190819163_InitialCreate.resx">
       <DependentUpon>201811190819163_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191110242_Bibliotecas.resx">
+      <DependentUpon>201811191110242_Bibliotecas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
